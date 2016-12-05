@@ -1,0 +1,36 @@
+<h2>Pull Requests</h2>
+  <div class="box attachments">
+  <table class="list issues sort-by-id sort-asc">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Id on Github</th>
+        <th>No on Github</th>
+        <th>Html URL</th>
+        <th>File Changes</th>
+        <th>State</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% if @pull_requests.blank?%>
+          <tr><td colspan="6"><b>---------- No Pull Requests Found ----------<b></td><tr>
+        <% else
+          @pull_requests.each do |pull_request| %>
+          <tr>
+            <td><%= pull_request.title%></td>
+            <td><%= pull_request.git_id%></td>
+            <td><%= pull_request.no%></td>
+            <td><a target='blank' href="<%= pull_request.html_url%>">View On Github</a></td>
+            <td><a target='blank' href="<%= pull_request.difference_url%>">View files changes  On Github</a></td>
+            <td><%= pull_request.state%></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+  
+  <div id="difference_display">
+    <h3> Files changes in pull request </h3><br>
+    <%= @pull_requests.first.difference_html.html_safe %>
+  </div>

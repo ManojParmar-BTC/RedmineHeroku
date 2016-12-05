@@ -1,0 +1,37 @@
+= pull_request
+
+This plugin if for displaying pull requests from github.
+
+for setup this plugin follow below given steps
+* execute below commands from terminal in your redmine directory
+  
+    cd plugins
+    git clone https://github.com/ChakreshwarSharma-BTC/btc_github_pr
+    cd ..
+    rake redmine:plugins:migrate`
+
+  
+* in your application.rb add config variable github_Secret_token
+  
+    config.github_secret_token = "token_string"
+
+* goto to github.com and goto to settings tab in your repository
+  than create webhook with following details
+  
+  payload-url: localhost:3000/pull_requests/github_hook?project_id=test
+  (here 'http://localhost/' will replace with your host address and test will replace with the identifier of your project)
+  
+  
+  content-type: application/json
+  
+  
+  secret: secret key which you have set in application.rb  
+  
+  
+  events: select let me select radio button and than check the checkboxes of pull_request
+  
+  
+  than submit for add web hook
+
+* than start your server and check pull request tab in your project menu 
+  after installing the plugin whatever changes for Pull request made on github will be reflacted in this page. 
