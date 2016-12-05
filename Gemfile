@@ -99,6 +99,7 @@ gem "activerecord-jdbcpostgresql-adapter", :platforms => :jruby
 
 group :development do
   gem "rdoc", "~> 4.3"
+  gem "pry"
   gem "yard"
 end
 

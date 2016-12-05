@@ -76,7 +76,7 @@ class PullRequestsController < ApplicationController
       url = PR_DIFF_URL + "#{author}/#{repo}/pull/#{pr_no}.diff"
       files_differences = get_diff(url).gsub!("\n", "<br/>")
       files_differences.gsub!(/^diff --git/, "<b> File Changed: </b>")
-      files_differences.gsub!(files_differences.index("a/")..files_differences.index("b/"), "")
+      files_differences.gsub!(files_differences[files_differences.index("a/")..files_differences.index("b/")], "")
       lines = files_differences.split("<br/>")
       lines.delete_if {|line| line.start_with?("---") || line.start_with?("+++") }
       html_content = "<table>";
