@@ -8,6 +8,7 @@
         <th>No on Github</th>
         <th>Html URL</th>
         <th>File Changes</th>
+        <th>File Changes Quick view</th>
         <th>State</th>
       </tr>
     </thead>
@@ -20,11 +21,17 @@
             <td><%= pull_request.title%></td>
             <td><%= pull_request.git_id%></td>
             <td><%= pull_request.no%></td>
-            <td><a target='blank' href="<%= pull_request.html_url%>">View On Github</a></td>
+            <td><%= link_to "View On Github",pull_request.html_url%></td>
+            <td><%= link_to "View files changes  On Github",pull_request.difference_url%></td>
+            <td><%= link_to "check quick change", view_changed_files_path(pull_request), remote: true %></td>
             <td><%= pull_request.state%></td>
           </tr>
         <% end %>
       <% end %>
     </tbody>
   </table>
+  </div>
+  
+  <div id="difference_display">
+    <%= render partial: 'difference_display', locals: {pull_request: @pull_request}  %>
   </div>
