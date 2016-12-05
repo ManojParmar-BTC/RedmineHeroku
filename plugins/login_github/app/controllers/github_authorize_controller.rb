@@ -16,6 +16,6 @@ class GithubAuthorizeController < ApplicationController
 
   private
     def github_auth
-      @github = Github.new client_id: '8609a0c6649b15094da8', client_secret: 'e946dd9a7c800f883c3a64a5e015a98003835b03'
+      @github = Github.new client_id: '25e3cdd3c9dbf60f83fa', client_secret: 'e946dd9a7c800f883c3a64a5e015a98003835b03'
     end
 end
