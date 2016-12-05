@@ -8,6 +8,7 @@ class PullRequestsController < ApplicationController
   end
 
   def github_hook
+    puts "github_hook called>> verify_signature? #{verify_signature?} >>pr #{params[:pull_request].present?} >> issue>> #{params[:issue].present?}"
     if verify_signature?
       begin
         if params[:pull_request].present?
@@ -17,8 +18,7 @@ class PullRequestsController < ApplicationController
                                           html_url: params[:pull_request][:html_url],
                                           difference_url: params[:pull_request][:html_url]+"/files",
                                           state: params[:pull_request][:state],
-                                          title: params[:pull_request][:title],
-                                          difference_html: html_content_for_files(params[:pull_request][:html_url], params[:pull_request][:number]))
+                                          title: params[:pull_request][:title])
         end
       rescue Exception => e
         puts e.message  
@@ -64,27 +64,5 @@ class PullRequestsController < ApplicationController
     rescue => e
       puts "error #{e}"
     end
-  end
-
-  def html_content_for_files(pr_diff_url, pr_no)
-      author = pr_diff_url.split("/")[3]  
-      repo = pr_diff_url.split("/")[4]
-      url = PR_DIFF_URL + "#{author}/#{repo}/pull/#{pr_no}.diff"
-      files_differences = get_diff(url).gsub!("\n", "<br/>")
-      files_differences.gsub!("diff --git ", "<b> File Changed: </b>")
-      files_differences.gsub!(files_differences.index("a/")..files_differences.index("b/"), "")
-      lines = files_differences.split("<br/>")
-      lines.delete_if {|line| line.start_with?("---") || line.start_with?("+++") }
-      html_content = "<table>";
-      lines.each do |line|
-        if line.start_with? "-"
-          html_content << "<tr style='background-color: pink'><td>"+ line + "</td></tr>"
-        elsif line.start_with? "+"
-          html_content << "<tr style='background-color: #c1e9c1'><td>"+ line + "</td></tr>"
-        else
-          html_content << "<tr><td>" + line + "</td></tr>"
-        end      
-      end
-      html_content << "</table>"      
   end
 end

@@ -4,6 +4,8 @@ class GithubCommitsController < ApplicationController
 
 
   def create_comment
+    puts "create_comment called>> verify_signature? #{verify_signature?} >>commits #{params[:commits].present?}"
+
     if params[:commits].present? && verify_signature?
       repository_name = params[:repository][:name]
       branch = params[:ref].split("/").last

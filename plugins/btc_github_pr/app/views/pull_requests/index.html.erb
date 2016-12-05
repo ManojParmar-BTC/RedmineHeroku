@@ -21,16 +21,10 @@
             <td><%= pull_request.git_id%></td>
             <td><%= pull_request.no%></td>
             <td><a target='blank' href="<%= pull_request.html_url%>">View On Github</a></td>
-            <td><a target='blank' href="<%= pull_request.difference_url%>">View files changes  On Github</a></td>
             <td><%= pull_request.state%></td>
           </tr>
         <% end %>
       <% end %>
     </tbody>
   </table>
-  </div>
-  
-  <div id="difference_display">
-    <h3> Files changes in pull request </h3><br>
-    <%= @pull_requests.first.difference_html.html_safe  if @pull_requests.present? %>
   </div>
