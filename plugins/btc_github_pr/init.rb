@@ -1,4 +1,4 @@
-Redmine::Plugin.register :btc_pull_request do
+Redmine::Plugin.register :btc_github_pr do
   name 'Pull Request plugin'
   author 'Manoj parmar'
   description 'This is a plugin for displaying pull requests'

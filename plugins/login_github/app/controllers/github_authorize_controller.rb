@@ -9,7 +9,7 @@ class GithubAuthorizeController < ApplicationController
   def authenticate_user
     token = @github.get_token(params[:code]).token
     user_authentication = UserAuthentication.find_or_create_by(user_id: User.current.id)
-    user_authentication.update_attributes(provider: "gihub", token: token)
+    user_authentication.update_attributes(provider: "github", token: token)
     flash[:notice] = "Authentication process from github complete."
     redirect_to home_path
   end
