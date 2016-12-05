@@ -1,0 +1,80 @@
+fieldset.top-menu-items .contextual {
+  margin-top: -6px;
+  margin-bottom: 8px;
+}
+
+fieldset.top-menu-items input[type=text] {
+  width: 100%;
+}
+
+.custom-button-form input, .custom-button-form textarea, .custom-button-form select {
+  width: 90%;
+}
+
+.custom-button-form input[type=checkbox] {
+  width: auto;
+}
+
+.custom-button {
+  margin-left: 5px;
+}
+
+.custom-button > i {
+  color: #6f93a0;
+  font-size: 14px;
+}
+
+.filter select[multiple] {
+  min-height: 200px;
+}
+
+#sidebar h3.collapsed {
+  background: url(../images/bullet_toggle_plus.png) -4px 5px no-repeat;
+  padding-left: 12px;
+  cursor: pointer;
+  display: block;
+}
+#sidebar h3 {
+  background: url(../images/bullet_toggle_minus.png) -4px 5px no-repeat;
+  padding-left: 12px;
+  cursor: pointer;
+  display: block;
+}
+
+#sidebar .collapsed {
+  display: none;
+}
+
+a#get-url-link {
+  margin: 0 10px 0 10px;
+}
+
+div.description, div#preview, div#history {
+  word-wrap: break-word;
+}
+
+div.journal.selected {
+  background-color: #ffffdd;
+}
+
+/* Jump box customizations */
+.jump-box-group {
+  font-weight: bold;
+}
+
+.jump-box-lvl0 {
+  margin-left: 0;
+}
+
+.jump-box-lvl1 {
+  margin-left: 1em;
+}
+
+.jump-box-lvl2 {
+  margin-left: 2em;
+}
+
+.jump-box-lvl3 {
+  margin-left: 3em;
+}
+
