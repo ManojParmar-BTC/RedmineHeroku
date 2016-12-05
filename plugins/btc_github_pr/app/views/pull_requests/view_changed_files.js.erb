@@ -1,1 +1,1 @@
-$("#difference_display").html("<%= escape_javascript(render partial: 'difference_display', locals: { items: @pull_request } ) %>"); 
+$("#difference_display").html("<%= escape_javascript(render partial: 'difference_display', locals: { pull_request: @pull_request } ) %>"); 

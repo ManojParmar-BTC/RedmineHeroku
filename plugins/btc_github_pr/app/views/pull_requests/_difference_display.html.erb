@@ -1,2 +1,2 @@
-    <h3> Files changes in pull request: </h3> <%= "##{@pull_request.no} #{@pull_request.title} " if @pull_request.present? %><hr><br>
-    <%= (@pull_request.present? ? @pull_request.difference_html : "<b> please select pull request for view difference</b>").html_safe %>
+    <h3> Files changes in pull request: </h3> <%= "##{pull_request.no} #{pull_request.title} " if pull_request.present? %><hr><br>
+    <%= (pull_request.present? ? pull_request.difference_html : "<b> please select pull request for view difference</b>").html_safe %>
